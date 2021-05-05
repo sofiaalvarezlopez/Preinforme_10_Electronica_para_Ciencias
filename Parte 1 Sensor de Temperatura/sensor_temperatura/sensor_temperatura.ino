@@ -7,7 +7,6 @@
 //Variables globales
 int puerto_serial = A2; //Este es el pin del arduino en el que leeremos la senial.
 int lectura_sensor; //Variable para almacenar el valor de temperatura (en V) leido por el Arduino.
-int contador = 0; //Contador para saber si ya ha pasado un segundo en la medicion.
 double temperatura; //Variable para almacenar el valor de la temperatura (en ºC).
 
 // put your setup code here, to run once:
@@ -20,7 +19,6 @@ void setup() {
 
 // put your main code here, to run repeatedly:
 void loop() {
-  contador++;
   //Leemos la senial medida en la variable puerto_serial, que oscila entre 0 y 1023
   lectura_sensor = analogRead(puerto_serial);
   //Identificamos el "nivel" que ha sido leido, considerando que la temperatura mas alta corresponde a una medicion de 1024.
