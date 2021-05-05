@@ -31,6 +31,7 @@ temperatura final, t_f.
 #1 segundo, el dato en la posicion 99 sera cuando hayan transcurrido 10 segundos. 
 t_i = tiempo[99]
 t_f = tiempo[-1]
+print(t_f)
 """
 Definimos el tiempo de estabilizacion como el tiempo que tarda el sensor en estabilizarse,
 desde el momento en que se empezo a cambiar la temperatura. 

@@ -21,7 +21,7 @@ void setup() {
 void loop() {
   //Leemos la senial medida en la variable puerto_serial, que oscila entre 0 y 1023
   lectura_sensor = analogRead(puerto_serial);
-  //Identificamos el "nivel" que ha sido leido, considerando que la temperatura mas alta corresponde a una medicion de 1024.
+  //Identificamos el "nivel" que ha sido leido, considerando que la temperatura mas alta corresponde a una medicion de 1024 (5V).
   //Multiplicamos por 5000 con el fin de conocer la medicion en miliVoltios.
   float milivoltios = (lectura_sensor/1023.0)*5000;
   //Segun las especificaciones del LM35, 10 mV es 1ºC. 
