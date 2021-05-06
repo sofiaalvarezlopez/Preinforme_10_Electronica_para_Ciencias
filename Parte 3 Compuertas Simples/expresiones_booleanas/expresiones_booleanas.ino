@@ -10,6 +10,8 @@ int D3 = 3; //Representa el pin de entrada D3.
 int D4 = 4; //Representa el pin de salida D4.
 int D5 = 5; //Representa el pin de salida D5.
 int D6 = 6; //Representa el pin de salida D6.
+int A; //Variable para almacenar la lectura del pin digital D2.
+int B; //Variable para almacenar la lectura del pin digital D3.
 
 // put your setup code here, to run once:
 void setup() {
@@ -24,15 +26,17 @@ void setup() {
 
 // put your main code here, to run repeatedly:
 void loop() {
+  A = digitalRead(D2);
+  B = digitalRead(D3);
   //NOT
   //D4 != D2; //D4 es la negacion de D2.
-  digitalWrite(D4, !D2);
+  digitalWrite(D4, !A);
   //AND
   //D5 = D2 && D3; //D5 = D2 AND D3.
-  digitalWrite(D5, D2 && D3);
+  digitalWrite(D5, A && B);
   //OR
   //D6 = D2 || D3; // D6 = D2 OR D3.
-  digitalWrite(D5, D2 || D3);
+  digitalWrite(D6, A || B);
  
 }
 
