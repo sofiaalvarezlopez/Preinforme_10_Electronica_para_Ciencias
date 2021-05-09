@@ -2,8 +2,7 @@
  * Parte 2: Detector de Oscuridad
  * Autora: Maria Sofia Alvarez Lopez - 201729031
  * Este codigo digitaliza dos seniales analogas:
- * A0: Divisor de Voltaje con Potenciometro.
- * A1: Divisor de Voltaje R con Fotocelda.
+ * A0: Divisor de Voltaje con Potenciometro. A1: Divisor de Voltaje R con Fotocelda.
  * Ademas, activa la senial digital D10 cuando la senial A0 (potenciometro) sea mayor a la de A1 (fotocelda).
  */
 

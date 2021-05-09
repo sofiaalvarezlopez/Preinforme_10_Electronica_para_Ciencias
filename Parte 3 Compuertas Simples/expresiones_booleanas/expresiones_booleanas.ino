@@ -3,7 +3,6 @@
  * Parte 3: Compuertas Simples (Version 1).
  * Este codigo implementa las compuertas simples NOT, AND, OR usando expresiones booleanas.
  */
-
 //Variables globales
 int D2 = 2; //Representa el pin de entrada D2.
 int D3 = 3; //Representa el pin de entrada D3.
@@ -12,7 +11,6 @@ int D5 = 5; //Representa el pin de salida D5.
 int D6 = 6; //Representa el pin de salida D6.
 int A; //Variable para almacenar la lectura del pin digital D2.
 int B; //Variable para almacenar la lectura del pin digital D3.
-
 // put your setup code here, to run once:
 void setup() {
   //Decimos cuales pines son seniales de entrada y cuales de salida.
@@ -23,7 +21,6 @@ void setup() {
   pinMode(D6, OUTPUT);
 
 }
-
 // put your main code here, to run repeatedly:
 void loop() {
   //Leemos ambos valores en el pin digital.
@@ -43,22 +40,18 @@ void loop() {
   OR(boolean_A, boolean_B, D6);
  
 }
-
 //Implementacion del NOT para una entrada A y una salida Y.
 void NOT(boolean A, int Y){
   digitalWrite(Y, !A);
 }
-
 //Implementacion del AND para dos entradas A,B y una salida Y.
 void AND(boolean A, boolean B, int Y){
   digitalWrite(Y, A && B);
 }
-
 //Implementacion del OR para dos entradas A,B y una salida Y.
 void OR(boolean A, boolean B, int Y){
   digitalWrite(Y, A || B);
 }
-
 //Convierte los valores de HIGH y LOW a TRUE o FALSE
 boolean convertir(int A){
   boolean boolean_val = A == HIGH ? true : false;

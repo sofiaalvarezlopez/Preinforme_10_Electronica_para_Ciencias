@@ -28,6 +28,7 @@ void loop() {
   temperatura = milivoltios/10;
   //Imprimimos el valor de temperatura medido
   Serial.println(temperatura);
-  //Esperamos 100 ms para repetir el loop. Esto nos asegura que estamos tomando aproximadamente 10 datos cada segundo, pues cada 100 ms tomamos 1 dato y 1s = 10*100 ms
+  //Esperamos 100 ms para repetir el loop. Esto nos asegura que estamos tomando aproximadamente 10 datos cada segundo.
+  //Cada 100 ms tomamos 1 dato y 1s = 10*100 ms
   delay(100);
 }
