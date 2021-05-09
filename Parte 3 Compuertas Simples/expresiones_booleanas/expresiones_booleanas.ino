@@ -26,31 +26,41 @@ void setup() {
 
 // put your main code here, to run repeatedly:
 void loop() {
+  //Leemos ambos valores en el pin digital.
   A = digitalRead(D2);
   B = digitalRead(D3);
+  //Convertimos los valores leidos a booleanos.
+  boolean boolean_A = convertir(A);
+  boolean boolean_B = convertir(B);
   //NOT
   //D4 != D2; //D4 es la negacion de D2.
-  digitalWrite(D4, !A);
+  NOT(boolean_A, D4);
   //AND
   //D5 = D2 && D3; //D5 = D2 AND D3.
-  digitalWrite(D5, A && B);
+  AND(boolean_A, boolean_B, D5);
   //OR
   //D6 = D2 || D3; // D6 = D2 OR D3.
-  digitalWrite(D6, A || B);
+  OR(boolean_A, boolean_B, D6);
  
 }
 
 //Implementacion del NOT para una entrada A y una salida Y.
-void NOT(int A, int Y){
+void NOT(boolean A, int Y){
   digitalWrite(Y, !A);
 }
 
 //Implementacion del AND para dos entradas A,B y una salida Y.
-void AND(int A, int B, int Y){
+void AND(boolean A, boolean B, int Y){
   digitalWrite(Y, A && B);
 }
 
 //Implementacion del OR para dos entradas A,B y una salida Y.
-void OR(int A, int B, int Y){
+void OR(boolean A, boolean B, int Y){
   digitalWrite(Y, A || B);
+}
+
+//Convierte los valores de HIGH y LOW a TRUE o FALSE
+boolean convertir(int A){
+  boolean boolean_val = A == HIGH ? true : false;
+  return boolean_val;
 }
