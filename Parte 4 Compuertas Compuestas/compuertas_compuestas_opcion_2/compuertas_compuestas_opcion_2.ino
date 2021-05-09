@@ -29,8 +29,8 @@ void loop() {
   //Convertimos a booleanos.
   boolean boolean_A = convertir(A);
   boolean boolean_B = convertir(B);
-  int C = punto_C(boolean_A,boolean_B,D7);
-  int D = punto_D(boolean_A,boolean_B,D8);
+  boolean C = punto_C(boolean_A,boolean_B,D7);
+  boolean D = punto_D(boolean_A,boolean_B,D8);
   punto_Y(C,D,D9);
 
 }
