@@ -10,14 +10,18 @@ int D3 = 3; //Representa el pin de entrada D3.
 int D4 = 4; //Representa el pin de salida D4.
 int D5 = 5; //Representa el pin de salida D5.
 int D6 = 6; //Representa el pin de salida D6.
+int puerto_A0 = A0;
 int A; //Variable para almacenar la lectura del pin digital D2.
 int B; //Variable para almacenar la lectura del pin digital D3.
 
 // put your setup code here, to run once:
 void setup() {
+  Serial.begin(9600);
   //Decimos cuales pines son seniales de entrada y cuales de salida.
   pinMode(D2, INPUT);
   pinMode(D3, INPUT);
+  pinMode(puerto_A0, INPUT);
+  
   pinMode(D4, OUTPUT);
   pinMode(D5, OUTPUT);
   pinMode(D6, OUTPUT);
@@ -28,8 +32,11 @@ void loop() {
   //Invocamos a cada una de las funciones con sus pines de entrada y salida.
   A = digitalRead(D2);
   B = digitalRead(D3);
-  NOT(A,D4);
-  AND(A,B,D5);
+  int medida = analogRead(puerto_A0);
+  float voltaje = medida*5.0/1023.0;
+  Serial.println(voltaje,3);
+  //NOT(A,D4);
+  //AND(A,B,D5);
   OR(A,B,D6);
 
 }

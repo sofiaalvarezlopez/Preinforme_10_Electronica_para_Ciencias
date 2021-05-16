@@ -8,6 +8,7 @@
 
 int puerto_potenciometro = A0; //El pin en que leeremos la senial analoga del potenciometro.
 int puerto_fotocelda = A1; //El pin en que leeremos la senial analoga de la fotocelda.
+int puerto_medir_D10 = A2;
 int salida_digital_LED = 10; //El pin de salida que se activara si la senial del potenciometro (A0) es mayor a la de la fotocelda (A1).
 int lectura_potenciometro; //Variable para almacenar la medicion del potenciometro en el canal A0.
 int lectura_fotocelda; //Variable para almacenar la medicion de la fotocelda en el canal A1.
@@ -20,6 +21,7 @@ void setup() {
   pinMode(puerto_potenciometro, INPUT); //Senial de entrada del potenciometro.
   pinMode(puerto_fotocelda,INPUT); //Senial de entrada de la fotocelda.
   pinMode(salida_digital_LED,OUTPUT); //Senial de salida para encender/apagar el LED.
+  pinMode(puerto_medir_D10,INPUT);
   //Imprimimos el encabezado
   Serial.print("V(A0) - Pot"); 
   Serial.print(F("\t")); //Separamos el texto con \t -una tabulacion- para 'serial plotter'
@@ -45,11 +47,19 @@ void loop() {
   Serial.print(voltaje_potenciometro,3); //el '3' indica 3 cifras decimales
   Serial.print(F("\t")); //Separamos los valores con \t -una tabulacion- para 'serial plotter'
   Serial.print(voltaje_fotocelda,3); //el '3' indica 3 cifras decimales
+  //----
+  int lectura_voltaje_D10 = analogRead(puerto_medir_D10);
+  float voltaje_D10 = lectura_voltaje_D10*5.0/1023.0;
+  Serial.print(F("\t"));
+  Serial.print(voltaje_D10,3);
   Serial.print(F("\n"));       //la ultima lectura debe terminar con un final de linea \n para 'serial plotter'
-
+  
   //Debemos encender el LED (i.e. activar la senial del pin D10 del Arduino) cuando la senial del potenciometro sea mayor a la de la fotocelda. 
   if (voltaje_potenciometro > voltaje_fotocelda){
     digitalWrite(salida_digital_LED, HIGH); //Como enviamos una senial HIGH (alta) por el pin digital, el LED se encendera (o se mantendra encendido).
+    //Serial.print(F("Voltaje aqui fue: "));
+    //Serial.print(voltaje_fotocelda,3);
+    //Serial.print(F("\n")); 
   }
   else{
     digitalWrite(salida_digital_LED, LOW); //Como enviamos una senial LOW (baja) por el pin digital, el LED se apagara (o se mantendra apagado).
